@@ -1,10 +1,17 @@
 import { config } from "dotenv";
 config();
 import express from "express";
+import cors from "cors";
 import axios from "axios";
 
 const app = express();
 
+app.use(
+  cors({
+    origin: "*",
+    methods: ["POST", "GET"],
+  })
+);
 app.use(express.json());
 
 const apiKey = process.env.AUTO_PILOT_API_KEY;
